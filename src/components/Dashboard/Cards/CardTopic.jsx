@@ -16,7 +16,8 @@ const useStyles = makeStyles({
         textDecoration: 'none',
         '&:hover': {
             backgroundColor: '#3B0059',
-            color: 'white'
+            color: 'white',
+            textDecoration: 'none'
         },
         '&:focus': {
             backgroundColor: '#3B0059',

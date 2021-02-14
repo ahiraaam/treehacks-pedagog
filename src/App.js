@@ -9,8 +9,10 @@ import Classes from "./components/Dashboard/Classes";
 import TestScreen from "./components/Dashboard/TestScreen";
 import LevelAndClasses from "./components/Dashboard/LevelAndClasses";
 import EduPoints from "./elements/edupoints.js";
+import "./App.css";
 
 function App() {
+  // Ignore the above haha
   return (
     <AuthProvider>
       <Router>

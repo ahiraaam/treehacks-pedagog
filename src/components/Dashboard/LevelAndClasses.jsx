@@ -7,6 +7,7 @@ import Card2 from './Cards/Card2';
 import firebase from '../Firebase'
 import { AuthContext } from '../Auth';
 import CardOfClass from './Cards/CardOfClass'
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -47,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: 5,
         paddingLeft: 30,
         paddingRight: 30,
-        marginTop: 20
     },
     imageProfile: {
         width: '20%',
@@ -59,6 +59,7 @@ const LevelAndClasses = () => {
     const [actualUser, setActualUser] = useState({ fullname: "", sessions: [] })
     const [actualClasses, setActualClasses] = useState([])
     const { currentUser } = useContext(AuthContext);
+
     async function getUser() {
         const coll = await firebase.firestore().collection("users")
         const tempUser = await coll.where("email", "==", currentUser.email).get()
@@ -119,15 +120,9 @@ const LevelAndClasses = () => {
                                 <CardOfClass item={item}></CardOfClass>
                             </Grid>
                         })}
-
-
                     </Grid>
-                    <Grid container spacing={3}>
 
-                    </Grid>
                 </Grid>
-                <button onClick={() => firebase.auth().signOut()}>Sign out</button>
-
             </Grid>
         </div >)
 }

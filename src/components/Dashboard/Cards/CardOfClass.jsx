@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
+import Modal from 'react-bootstrap/Modal';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import firebase from '../../Firebase'
+import { AuthContext } from '../../Auth';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     card: {
@@ -31,6 +36,27 @@ const useStyles = makeStyles({
 });
 const CardOfClass = ({ item, image }) => {
     const classes = useStyles();
+    const [show, setShow] = useState(false);
+    const [actualUser, setActualUser] = useState({ fullname: "", sessions: [] })
+    const { currentUser } = useContext(AuthContext);
+    const handleSubmit = async () => {
+
+        await firebase.firestore()
+            .collection('users').where("email", '==', currentUser.email).get().then(response => {
+                let batch = firebase.firestore().batch()
+                response.docs.forEach((doc) => {
+                    const docRef = firebase.firestore().collection("users").doc(doc.id)
+                    docRef.update(
+                        { sessions: firebase.firestore.FieldValue.arrayUnion({ class: item.class, location: item.location, image: item.image, level: item.level, student: item.student, description: item.description, date: item.date }) },
+                    )
+                })
+                batch.commit().then(() => {
+                    console.log(`updated all documents inside ${"users"}`)
+                })
+            })
+    };
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true);
     return (
         <Card className={classes.card} >
             <CardContent>
@@ -40,9 +66,25 @@ const CardOfClass = ({ item, image }) => {
                 <h4>Student: {item.student}</h4>
                 <h4>Location: {item.location}</h4>
                 <p>{item.description}</p>
-                <button className={classes.button}>Shedule</button>
-
+                <button className={classes.button} onClick={handleShow}>Shedule</button>
             </CardContent>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Are you sure you want to schedule this class?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>You can earn up to 300 edupoints</Modal.Body>
+                <Modal.Footer>
+                    <button variant="secondary" onClick={handleClose}>
+                        Cancel
+                    </button>
+                    <Link to='/'>
+                        <button variant="primary" onClick={handleSubmit}>
+                            I Accept
+                    </button>
+                    </Link>
+
+                </Modal.Footer>
+            </Modal>
         </Card>
     )
 }

@@ -7,6 +7,9 @@ import Card2 from './Cards/Card2';
 import firebase from '../Firebase'
 import { AuthContext } from '../Auth';
 import CardWorkshop from './Cards/CardWorkshop'
+import { Widget, addResponseMessage } from "react-chat-widget";
+import "react-chat-widget/lib/styles.css";
+import OpenAI from "openai-api";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -47,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: 5,
         paddingLeft: 30,
         paddingRight: 30,
-        marginTop: 20
     },
     imageProfile: {
         width: '20%',
@@ -55,6 +57,35 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 const Dashboard = () => {
+    const handleNewUserMessage = (newMessage) => {
+        let query =
+            'Generate a super simple synthesis of the topic "' +
+            newMessage +
+            '" so an elementary school kid can understand it:"""';
+
+        var openaiclient = new OpenAI(
+            "sk-rDRox47yaPXgkhs0sZZXw1bGqfPXxr4FaiDcQf0v"
+        );
+
+        (async () => {
+            const gptResponse = await openaiclient.complete({
+                engine: "davinci",
+                prompt: query,
+                maxTokens: 100,
+                temperature: 0.6,
+                topP: 1,
+                presencePenalty: 0,
+                frequencyPenalty: 0.36,
+                bestOf: 1,
+                n: 1,
+                stream: false,
+                stop: ['"""', "."],
+            });
+            addResponseMessage(gptResponse.data.choices[0].text);
+        })();
+
+        // Now send the message throught the backend API
+    };
     const classes = useStyles();
     const [actualUser, setActualUser] = useState({ fullname: "", sessions: [] })
     const { currentUser } = useContext(AuthContext);
@@ -94,7 +125,7 @@ const Dashboard = () => {
                     <div className={classes.rightHeader}>
                         <p className={classes.titlesHeaders}>Time to Graduation:</p>
                         <h3 className={classes.subtitleHeader}>365 days</h3>
-                        <button className={classes.button}>Schedule a meeting</button>
+                        <button className={classes.button} onClick={() => firebase.auth().signOut()}>Sign out</button>
                     </div>
                 </Grid>
                 <Grid className={classes.dashboard} item xs={12}>
@@ -134,8 +165,11 @@ const Dashboard = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <button onClick={() => firebase.auth().signOut()}>Sign out</button>
-
+                <Widget
+                    handleNewUserMessage={handleNewUserMessage}
+                    title="Quick learn"
+                    subtitle="¡Ask about any topic and you'll get an AI personally generated synthesis about it!"
+                />
             </Grid>
         </div >)
 }

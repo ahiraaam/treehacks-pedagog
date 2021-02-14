@@ -48,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: 5,
         paddingLeft: 30,
         paddingRight: 30,
-        marginTop: 20
     },
     imageProfile: {
         width: '20%',
