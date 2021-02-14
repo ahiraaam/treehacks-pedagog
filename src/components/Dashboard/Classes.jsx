@@ -113,7 +113,6 @@ const Classes = () => {
                             <Link to="/test-history/mathematics" >
                                 <CardTopic name="Math" image="https://firebasestorage.googleapis.com/v0/b/pedagog-a5cda.appspot.com/o/calculating.png?alt=media&token=350bba2d-546e-4ef5-83e1-e1896535b906"></CardTopic>
                             </Link>
-
                         </Grid>
                         <Grid item xs={3}>
                             <CardTopic name="English" image="https://firebasestorage.googleapis.com/v0/b/pedagog-a5cda.appspot.com/o/Imagen%2015.png?alt=media&token=a861fab9-8dcc-44b0-987d-a6ca51e44543"></CardTopic>
