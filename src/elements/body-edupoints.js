@@ -40,7 +40,7 @@ class BodyEduPoints extends React.Component{
                 </div>
                 <div className="edupoints-container">
                     <TextContainerBody name="SAVINGS:" balance={this.props.savings}/>
-                    <div className="generic-button" onClick={this.alert_pop}>
+                    <div className="generic-button-edupoints" onClick={this.alert_pop}>
                         add
                     </div>
                 </div>

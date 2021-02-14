@@ -76,7 +76,7 @@
 .balance-board{
     color: #3b0059;
     background-color: white;
-    width: 55%;
+    width: 60%;
     height: 100%;
     float: right;
     box-shadow: 0 5px 5px gray;
@@ -146,7 +146,7 @@
     font-size: 28pt;
 }
 
-.generic-button{
+.generic-button-edupoints{
     width: 100px;
     height: 30px;
     background-color: #3b0059;
@@ -154,7 +154,7 @@
     font-family: MuseoSans-500;
     color: white;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 5px;
     margin: 15px auto;
     cursor:pointer;
 }

@@ -64,7 +64,9 @@ const Home = () => {
                     Helping us to bring education to <a class="strong-2">260 million children</a> around the world by 2030
                 </div>
                 <div class="sign-up-container">
-                    <button class="generic-button-2"> JOIN NOW </button>
+                    <Link to="/signup">
+                        <button class="generic-button-2"> JOIN NOW </button>
+                    </Link>
                     <div class="crop">
                         <img alt="image3" src={require("./images/blue-thing.png").default} class="blue-thing" />
                     </div>
