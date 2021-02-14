@@ -10,6 +10,8 @@ import CardWorkshop from './Cards/CardWorkshop'
 import { Widget, addResponseMessage } from "react-chat-widget";
 import "react-chat-widget/lib/styles.css";
 import OpenAI from "openai-api";
+import homeButton from "../../elements/images/home-button.png";
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -87,7 +89,7 @@ const Dashboard = () => {
         // Now send the message throught the backend API
     };
     const classes = useStyles();
-    const [actualUser, setActualUser] = useState({ fullname: "", sessions: [] })
+    const [actualUser, setActualUser] = useState({ fullname: "", sessions: [], edupoints: 0 })
     const { currentUser } = useContext(AuthContext);
     async function getUser() {
         const coll = await firebase.firestore().collection("users")
@@ -112,7 +114,7 @@ const Dashboard = () => {
                         <h1 style={{ marginTop: 40 }}>Welcome {actualUser.fullname}</h1>
                     </Grid>
                 </Grid>
-                <Grid item xs={12} lg={4} style={{ height: '120px' }}>
+                <Grid item xs={12} lg={3} style={{ height: '120px' }}>
                     <div className={classes.rightHeader}>
                         <p className={classes.titlesHeaders}>Edupoints Balance:</p>
                         <h3 className={classes.subtitleHeader}>{actualUser.edupoints}</h3>
@@ -127,6 +129,11 @@ const Dashboard = () => {
                         <h3 className={classes.subtitleHeader}>365 days</h3>
                         <button className={classes.button} onClick={() => firebase.auth().signOut()}>Sign out</button>
                     </div>
+                </Grid>
+                <Grid item xs={12} lg={1}>
+                    <Link to="/dashboard">
+                        <img alt="home" src={homeButton} className="home-button"></img>
+                    </Link>
                 </Grid>
                 <Grid className={classes.dashboard} item xs={12}>
                     <Grid container spacing={3}>

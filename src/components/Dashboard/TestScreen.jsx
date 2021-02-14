@@ -62,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: 5,
         paddingLeft: 30,
         paddingRight: 30,
-        marginTop: 20,
     },
     imageProfile: {
         width: '20%',
@@ -88,7 +87,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'red'
     }
 }));
-const TestScreen = () => {
+const TestScreen = ({ match }) => {
+    console.log("TEST SCREEN", match.params.topic)
+    const topic = match.params.topic.toUpperCase()
     const classes = useStyles();
     const [actualUser, setActualUser] = useState({ fullname: "", sessions: [] })
     const [actualQuiz, setActualQuiz] = useState({ question1: [] })
@@ -108,7 +109,7 @@ const TestScreen = () => {
 
     async function getTest() {
         const coll = await firebase.firestore().collection("quiz")
-        const quizDoc = await coll.doc("history").get()
+        const quizDoc = await coll.doc(match.params.topic).get()
         setActualQuiz(quizDoc.data())
         console.log("User", quizDoc.data())
     }
@@ -145,10 +146,10 @@ const TestScreen = () => {
                 <Grid className={classes.dashboard} item xs={12}>
                     <Grid container spacing={3}>
                         <Grid item xs={12} lg={12} style={{ marginLeft: 20 }}>
-                            <h1 style={{ textAlign: 'center', fontSize: '2em' }}>TAKE OUR HISTORY QUIZ TO SET YOUR LEVEL</h1>
+                            <h1 style={{ textAlign: 'center', fontSize: '2em' }}>TAKE OUR {topic} QUIZ TO SET YOUR LEVEL</h1>
                         </Grid>
                         <Grid item xs={12} lg={12} style={{ textAlign: 'center' }}>
-                            <img alt="imageHistory" style={{ height: 300 }} src="http://usacricket.wpengine.com/wp-content/uploads/2017/10/history-1778.jpg"></img>
+                            <img alt="imageHistory" style={{ height: 300 }} src={actualQuiz.image}></img>
                         </Grid>
                         <Grid item xs={12} style={{ textAlign: 'center' }}>
                             {actualQuiz.question1.map((item, index) => {
@@ -164,7 +165,7 @@ const TestScreen = () => {
                                     </Grid>
                                 </Grid>
                             })}
-                            <Link to={'/level'}>
+                            <Link to={`/level/${match.params.topic}`}>
                                 <button className={classes.button2}>Send it</button>
                             </Link>
                         </Grid>

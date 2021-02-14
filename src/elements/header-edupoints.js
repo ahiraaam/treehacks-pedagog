@@ -27,7 +27,7 @@ class HeaderEduPoints extends React.Component {
         <div className="balance-board">
           <div className="balance-heading">EDUPOINTS BALANCE:</div>
           <div className="balance-display">{this.props.balance}</div>
-          <Link to="/">
+          <Link to="/dashboard">
             <img alt="home" src={homeButton} className="home-button"></img>
           </Link>
         </div>

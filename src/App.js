@@ -10,6 +10,7 @@ import TestScreen from "./components/Dashboard/TestScreen";
 import LevelAndClasses from "./components/Dashboard/LevelAndClasses";
 import EduPoints from "./elements/edupoints.js";
 import "./App.css";
+import Home from "./home/Home";
 
 function App() {
   // Ignore the above haha
@@ -17,7 +18,12 @@ function App() {
     <AuthProvider>
       <Router>
         <Switch>
-          <PrivateRoute exact path="/" component={Dashboard}></PrivateRoute>
+          <Route exact path="/" component={Home}></Route>
+          <PrivateRoute
+            exact
+            path="/dashboard"
+            component={Dashboard}
+          ></PrivateRoute>
           <PrivateRoute
             exact
             path="/sessions"
@@ -25,8 +31,8 @@ function App() {
           ></PrivateRoute>
           <Route exact path="/login" component={Login}></Route>
           <Route exact path="/signup" component={SignUp}></Route>
-          <Route path="/test-history" component={TestScreen}></Route>
-          <Route path="/level" component={LevelAndClasses}></Route>
+          <Route path="/test-history/:topic" component={TestScreen}></Route>
+          <Route path="/level/:topic" component={LevelAndClasses}></Route>
           <Route path="/edupoints" component={EduPoints}></Route>
         </Switch>
       </Router>

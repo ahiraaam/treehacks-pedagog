@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
+import Modal from 'react-bootstrap/Modal';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     card: {
@@ -29,6 +32,9 @@ const useStyles = makeStyles({
 });
 const CardClass = ({ data }) => {
     const classes = useStyles();
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true);
     return (
         <Card className={classes.card}>
             <CardContent>
@@ -37,9 +43,27 @@ const CardClass = ({ data }) => {
                 <h4>{data ? data.class : null}</h4>
                 <p>{data ? "Student: " + data.student : null}</p>
                 <p>{data ? "Location: " + data.location : null}</p>
-                <button className={classes.button}>See More</button>
+                <button className={classes.button} onClick={handleShow}>See More</button>
             </CardContent>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Details of your class</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>When it's time enter the zoom meeting: <br /> ID: 473 842 9350 <br /> Password: 8465739</Modal.Body>
+                <Modal.Footer>
+                    <button className={classes.button} variant="secondary" onClick={handleClose}>
+                        Cancel the class
+                    </button>
+                    <Link to='/dashboard'>
+                        <button className={classes.button} variant="primary" onClick={handleClose}>
+                            I've finished the class
+                    </button>
+                    </Link>
+
+                </Modal.Footer>
+            </Modal>
         </Card>
+
     )
 }
 

@@ -85,14 +85,16 @@ const Classes = () => {
                     <div className={classes.rightHeader}>
                         <p className={classes.titlesHeaders}>Edupoints Balance:</p>
                         <h3 className={classes.subtitleHeader}>{actualUser.edupoints}</h3>
-                        <button className={classes.button}>More</button>
+                        <Link to='/edupoints'>
+                            <button className={classes.button}>More</button>
+                        </Link>
                     </div>
                 </Grid>
                 <Grid item xs={12} lg={3} style={{ height: '120px' }}>
                     <div className={classes.rightHeader}>
                         <p className={classes.titlesHeaders}>Time to Graduation:</p>
                         <h3 className={classes.subtitleHeader}>365 days</h3>
-                        <button className={classes.button}>Schedule a meeting</button>
+                        <button className={classes.button} onClick={() => firebase.auth().signOut()}>Sign out</button>
                     </div>
                 </Grid>
                 <Grid className={classes.dashboard} item xs={12}>
@@ -102,13 +104,16 @@ const Classes = () => {
                         </Grid>
 
                         <Grid item xs={3}>
-                            <Link to="/test-history">
+                            <Link to="/test-history/history" >
                                 <CardTopic name="History" image="https://firebasestorage.googleapis.com/v0/b/pedagog-a5cda.appspot.com/o/sword.png?alt=media&token=a44fefcd-4c1d-4f95-aefc-755da0c6bdaf"></CardTopic>
                             </Link>
                         </Grid>
 
                         <Grid item xs={3}>
-                            <CardTopic name="Math" image="https://firebasestorage.googleapis.com/v0/b/pedagog-a5cda.appspot.com/o/calculating.png?alt=media&token=350bba2d-546e-4ef5-83e1-e1896535b906"></CardTopic>
+                            <Link to="/test-history/mathematics" >
+                                <CardTopic name="Math" image="https://firebasestorage.googleapis.com/v0/b/pedagog-a5cda.appspot.com/o/calculating.png?alt=media&token=350bba2d-546e-4ef5-83e1-e1896535b906"></CardTopic>
+                            </Link>
+
                         </Grid>
                         <Grid item xs={3}>
                             <CardTopic name="English" image="https://firebasestorage.googleapis.com/v0/b/pedagog-a5cda.appspot.com/o/Imagen%2015.png?alt=media&token=a861fab9-8dcc-44b0-987d-a6ca51e44543"></CardTopic>
@@ -126,9 +131,7 @@ const Classes = () => {
                             <CardTopic name="See More" image="https://firebasestorage.googleapis.com/v0/b/pedagog-a5cda.appspot.com/o/Imagen%2014.png?alt=media&token=17476a1d-5b3a-484e-9af7-8076ceedf36a"></CardTopic>
                         </Grid>
                     </Grid>
-                    <Grid container spacing={3}>
 
-                    </Grid>
                 </Grid>
                 <button onClick={() => firebase.auth().signOut()}>Sign out</button>
 

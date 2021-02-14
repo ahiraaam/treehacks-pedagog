@@ -7,6 +7,7 @@ import Card2 from './Cards/Card2';
 import firebase from '../Firebase'
 import { AuthContext } from '../Auth';
 import CardOfClass from './Cards/CardOfClass'
+import homeButton from "../../elements/images/home-button.png";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -54,8 +55,9 @@ const useStyles = makeStyles((theme) => ({
         margin: 5
     }
 }));
-const LevelAndClasses = () => {
+const LevelAndClasses = ({ match }) => {
     const classes = useStyles();
+    let topic = match.params.topic
     const [actualUser, setActualUser] = useState({ fullname: "", sessions: [] })
     const [actualClasses, setActualClasses] = useState([])
     const { currentUser } = useContext(AuthContext);
@@ -70,7 +72,7 @@ const LevelAndClasses = () => {
     }
     async function getClasses() {
         const coll = await firebase.firestore().collection("classes")
-        const quizDoc = await coll.where("class", "==", "History").get()
+        const quizDoc = await coll.where("class", "==", topic).get()
         let arrayClasses = []
         await quizDoc.forEach(doc => {
             arrayClasses.push(doc.data())
@@ -95,25 +97,32 @@ const LevelAndClasses = () => {
                         <h1 style={{ marginTop: 40 }}>Welcome {actualUser.fullname}</h1>
                     </Grid>
                 </Grid>
-                <Grid item xs={12} lg={4} style={{ height: '120px' }}>
+                <Grid item xs={12} lg={3} style={{ height: '120px' }}>
                     <div className={classes.rightHeader}>
                         <p className={classes.titlesHeaders}>Edupoints Balance:</p>
                         <h3 className={classes.subtitleHeader}>{actualUser.edupoints}</h3>
-                        <button className={classes.button}>More</button>
+                        <Link to='/edupoints'>
+                            <button className={classes.button}>More</button>
+                        </Link>
                     </div>
                 </Grid>
                 <Grid item xs={12} lg={3} style={{ height: '120px' }}>
                     <div className={classes.rightHeader}>
                         <p className={classes.titlesHeaders}>Time to Graduation:</p>
                         <h3 className={classes.subtitleHeader}>365 days</h3>
-                        <button className={classes.button}>Schedule a meeting</button>
+                        <button className={classes.button} onClick={() => firebase.auth().signOut()}>Sign out</button>
                     </div>
+                </Grid>
+                <Grid item xs={12} lg={1}>
+                    <Link to="/dashboard">
+                        <img alt="home" src={homeButton} className="home-button"></img>
+                    </Link>
                 </Grid>
                 <Grid className={classes.dashboard} item xs={12}>
                     <Grid container spacing={3}>
                         <Grid item xs={12} lg={12} style={{ marginLeft: 20 }}>
                             <h1 style={{ textAlign: 'center', fontSize: '2em' }}>You are ready to teach:</h1>
-                            <h2 style={{ textAlign: 'center', fontSize: '1.5em' }}>History Level 4</h2>
+                            <h2 style={{ textAlign: 'center', fontSize: '1.5em' }}>{topic.toUpperCase()} Level 4</h2>
                         </Grid>
                         {actualClasses.map((item, index) => {
                             return <Grid item xs={3}>

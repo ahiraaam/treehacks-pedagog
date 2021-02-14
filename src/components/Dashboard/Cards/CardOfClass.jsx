@@ -61,7 +61,7 @@ const CardOfClass = ({ item, image }) => {
         <Card className={classes.card} >
             <CardContent>
                 <img alt="courseImage" src={item.image} style={{ height: '80px' }} />
-                <h3>{item.class} Level {item.level}</h3>
+                <h3>{item.class.toUpperCase()} Level {item.level}</h3>
                 <p>Date: {item.date ? new Date(item.date.seconds * 1000).toLocaleDateString("en-US") : null}</p>
                 <h4>Student: {item.student}</h4>
                 <h4>Location: {item.location}</h4>
@@ -74,11 +74,11 @@ const CardOfClass = ({ item, image }) => {
                 </Modal.Header>
                 <Modal.Body>You can earn up to 300 edupoints</Modal.Body>
                 <Modal.Footer>
-                    <button variant="secondary" onClick={handleClose}>
+                    <button className={classes.button} variant="secondary" onClick={handleClose}>
                         Cancel
                     </button>
-                    <Link to='/'>
-                        <button variant="primary" onClick={handleSubmit}>
+                    <Link to='/dashboard'>
+                        <button className={classes.button} variant="primary" onClick={handleSubmit}>
                             I Accept
                     </button>
                     </Link>

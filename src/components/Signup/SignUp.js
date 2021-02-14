@@ -15,7 +15,7 @@ const SignUp = ({ history }) => {
         await firebase
           .auth()
           .createUserWithEmailAndPassword(email.value, password.value);
-        history.push("/");
+        history.push("/dashboard");
         db.collection("users").add({
           fullname: username.value,
           email: email.value,
