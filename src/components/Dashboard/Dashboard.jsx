@@ -85,7 +85,9 @@ const Dashboard = () => {
                     <div className={classes.rightHeader}>
                         <p className={classes.titlesHeaders}>Edupoints Balance:</p>
                         <h3 className={classes.subtitleHeader}>{actualUser.edupoints}</h3>
-                        <button className={classes.button}>More</button>
+                        <Link to='/edupoints'>
+                            <button className={classes.button}>More</button>
+                        </Link>
                     </div>
                 </Grid>
                 <Grid item xs={12} lg={3} style={{ height: '120px' }}>

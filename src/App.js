@@ -8,6 +8,8 @@ import PrivateRoute from "./components/PrivateRoute";
 import Classes from "./components/Dashboard/Classes";
 import TestScreen from "./components/Dashboard/TestScreen";
 import LevelAndClasses from "./components/Dashboard/LevelAndClasses";
+import EduPoints from "./elements/edupoints.js";
+
 function App() {
   return (
     <AuthProvider>
@@ -23,6 +25,7 @@ function App() {
           <Route exact path="/signup" component={SignUp}></Route>
           <Route path="/test-history" component={TestScreen}></Route>
           <Route path="/level" component={LevelAndClasses}></Route>
+          <Route path="/edupoints" component={EduPoints}></Route>
         </Switch>
       </Router>
     </AuthProvider>

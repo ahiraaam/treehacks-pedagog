@@ -1,0 +1,178 @@
+@import url(//db.onlinewebfonts.com/c/8b2760b7bcaf4e2cdbb6cacec092b91b?family=MuseoSans-900);
+@import url(//db.onlinewebfonts.com/c/16697a764b01cdcc691b05f001046bc3?family=Museo+Sans+500);
+@import url(//db.onlinewebfonts.com/c/44f1d96a0579112e89a76a877b4645f4?family=MuseoSans-300);
+@import url(//db.onlinewebfonts.com/c/2fa6a322645e1e451d8dfeb263a1cafe?family=MuseoSans-700);
+
+@font-face {
+    font-family: "MuseoSans-900"; 
+    src: url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.eot"); 
+    src: url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.svg#MuseoSans-900") format("svg");
+}
+
+@font-face {
+    font-family: "MuseoSans-500"; 
+    src: url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.eot"); 
+    src: url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.svg#Museo Sans 500") format("svg"); 
+}
+
+@font-face {
+    font-family: "MuseoSans-300"; 
+    src: url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.eot"); 
+    src: url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.svg#MuseoSans-300") format("svg"); 
+}
+
+@font-face {
+    font-family: "MuseoSans-700"; 
+    src: url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.eot"); 
+    src: url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.svg#MuseoSans-700") format("svg"); 
+}
+
+.header-main{
+    width: 100%;
+    height: 120px;
+}
+
+.profile-view{
+    width: 40%;
+    height: 100%;
+    background-color: #3b0059;
+    box-shadow: 0 5px 5px gray;
+    float: left;
+}
+
+.profile-pic{
+    height: 100px;
+    float: left;
+    padding: 10px;
+}
+
+.text-container-profile{
+    color:white;
+    font-family: MuseoSans-900;
+    font-size: 18pt;
+    display: table-cell;
+    padding-top: 46px;
+    float: left;
+    vertical-align: middle;
+    align-self: center;
+}
+
+.balance-board{
+    color: #3b0059;
+    background-color: white;
+    width: 55%;
+    height: 100%;
+    float: right;
+    box-shadow: 0 5px 5px gray;
+    padding-left: 5%;
+}
+
+.balance-heading{
+    margin-top: 30px;
+    font-family: MuseoSans-500;
+    font-size: 15pt;
+}
+
+.balance-display{
+    margin-top: 10px;
+    width: 20%;
+    margin-right: 0;
+    font-family: MuseoSans-900;
+    font-size: 15pt;
+}
+
+.main-container{
+    background-color: #d8d7e6;
+    width: 100%;
+    height: -webkit-calc(100vh - 120px);
+}
+
+.home-button{
+    position: absolute;
+    width: 30px;
+    right: 20px;
+    top: 75px;
+    cursor:pointer;
+}
+
+.edupoints-container{
+    width: 352px;
+    height: 266px;
+    background-color: white;
+    box-shadow: 10px 10px 10px gray;
+    border-radius: 25px;
+    float: left;
+    margin-top: 130px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: center;
+}
+
+.text-container-body{
+    font-family: MuseoSans-700;
+    color: #3b0059;
+    text-align: center;
+    padding-top: 80px;
+    font-size: 18pt;
+}
+
+.text-container-body-info{
+    font-family: MuseoSans-700;
+    color: #3b0059;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18pt;
+}
+
+.balance-body{
+    padding-top: 30px;
+    font-size: 28pt;
+}
+
+.generic-button{
+    width: 100px;
+    height: 30px;
+    background-color: #3b0059;
+    border-radius: 25px;
+    font-family: MuseoSans-500;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    margin: 15px auto;
+    cursor:pointer;
+}
+
+.image-inside{
+    margin: 20px auto 0px;
+    width: 80px;
+}
+
+.description{
+    padding: 0 10px 0 10px;
+    font-family: MuseoSans-300;
+    color: #3b0059;
+    font-size: 12pt;
+}
+
+.strong{
+    width: 0;
+    height: 0;
+    font-family: MuseoSans-900;
+}
