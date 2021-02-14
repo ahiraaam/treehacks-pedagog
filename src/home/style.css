@@ -1,0 +1,255 @@
+@import url(//db.onlinewebfonts.com/c/8b2760b7bcaf4e2cdbb6cacec092b91b?family=MuseoSans-900);
+@import url(//db.onlinewebfonts.com/c/16697a764b01cdcc691b05f001046bc3?family=Museo+Sans+500);
+@import url(//db.onlinewebfonts.com/c/44f1d96a0579112e89a76a877b4645f4?family=MuseoSans-300);
+@import url(//db.onlinewebfonts.com/c/2fa6a322645e1e451d8dfeb263a1cafe?family=MuseoSans-700);
+
+@font-face {
+    font-family: "MuseoSans-900"; 
+    src: url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.eot"); 
+    src: url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/8b2760b7bcaf4e2cdbb6cacec092b91b.svg#MuseoSans-900") format("svg");
+}
+
+@font-face {
+    font-family: "MuseoSans-500"; 
+    src: url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.eot"); 
+    src: url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.svg#Museo Sans 500") format("svg"); 
+}
+
+@font-face {
+    font-family: "MuseoSans-300"; 
+    src: url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.eot"); 
+    src: url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/44f1d96a0579112e89a76a877b4645f4.svg#MuseoSans-300") format("svg"); 
+}
+
+@font-face {
+    font-family: "MuseoSans-700"; 
+    src: url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.eot"); 
+    src: url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/2fa6a322645e1e451d8dfeb263a1cafe.svg#MuseoSans-700") format("svg"); 
+}
+
+header{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.bgimage{
+    background-color: #3b0059;
+    width: 100%;
+    height: 200px;
+}
+
+.logo{
+  height: 100px;
+  margin: 50px 0 0 20px;
+}
+
+.purple-thing{
+  position: absolute;
+  right: -1500px;
+}
+
+.sparkles{
+  position: absolute;
+  top: 30px;
+  left: 190px;
+  height: 100vh;
+}
+
+.cover{
+  background-image: url("./images/girl-cover.jpg");
+  background-position: top;
+  background-size: cover;
+  width: auto;
+  height: 600px;
+  box-shadow: 0 5px 5px gray;
+}
+
+.slogan{
+  font-family: MuseoSans-700;
+  font-size: 30pt;
+  width: 550px;
+  height: 170px;
+  padding-top: 150px;
+  margin-left: 200px;
+  color: #3b0059;
+}
+
+.strong{
+  font-family: MuseoSans-900;
+}
+
+.generic-button{
+    width: 100px;
+    height: 50px;
+    background-color: #3b0059;
+    border-radius: 25px;
+    font-family: MuseoSans-500;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    margin-left: 200px;
+    cursor: pointer;
+    border: 0;
+    position: relative;
+    z-index: 100;
+}
+
+.container{
+  height: 500px;
+  width: auto;
+  background-color: #d8d7e6;
+}
+
+.header-desc{
+  font-family: MuseoSans-700;
+  font-size: 30pt;
+  color: #3b0059;
+  width: auto;
+  padding-top: 40px;
+  text-align: center;
+}
+
+.little-container{
+    width: 352px;
+    height: 266px;
+    background-color: white;
+    box-shadow: 10px 10px 10px gray;
+    border-radius: 25px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: center;
+    color: #3b0059;
+    font-family: MuseoSans-300;
+}
+
+.icon-cont{
+  height: 150px;
+  padding: 10px;
+}
+
+.cta-modal{
+  width: auto;
+  height: 105px;
+  padding-top: 50px;
+  background-color: white;
+  background-image: url("./images/sparkles.jpg");
+  background-position: top;
+  background-size: cover;
+  text-align: center;
+  color: #3b0059;
+  font-family: MuseoSans-700;
+  font-size: 30pt;
+}
+
+.sign-up-desc{
+  width: auto;
+  height: 300px;
+  background-color: #d8d7e6;
+}
+
+.earth{
+  height: 200px;
+  padding-top: 50px;
+  padding-left: 50px; 
+  float: left;
+}
+
+.sign-up-desc-modal{
+  width: 600px;
+  height: 200px;
+  margin-top: 100px;
+  margin-left: 30px;
+  margin-right: 0;
+  color:black;
+  font-family: MuseoSans-500;
+  font-size: 25pt;
+  float: left;
+}
+
+.purple-thing-2{
+  position: absolute;
+  right: -800px;
+  top:1175px;
+  height: 1000px;
+  width: 1600px;
+  object-fit: cover;
+}
+
+.sign-up-modal{
+  width: auto;
+  height: 150px;
+  background-color: white;
+  color: #3b0059;
+  font-family: MuseoSans-700;
+  font-size: 30pt;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.strong-2{
+  font-family: MuseoSans-900;
+  font-size: 35pt;
+}
+
+.sign-up-container{
+  width: auto;
+  height: 300px;
+  background-color: #d8d7e6;
+  text-align: center;
+}
+
+.generic-button-2{
+    width: 200px;
+    height: 70px;
+    background-color: #3b0059;
+    border-radius: 50px;
+    font-family: MuseoSans-700;
+    font-size: 20pt;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    margin-left: auto;
+    margin-top: 100px;
+    cursor: pointer;
+    border: 0;
+    position: relative;
+    z-index: 100;
+}
+
+.crop{
+  width: -webkit-calc(auto+300px);
+  height: 150px;
+  margin-top: -20px; 
+  overflow: hidden;
+}
+
+.blue-thing{
+  width: 1600px;
+  margin-left: -150px;
+}
