@@ -11,7 +11,8 @@ import LevelAndClasses from "./components/Dashboard/LevelAndClasses";
 import EduPoints from "./elements/edupoints.js";
 import "./App.css";
 import Home from "./home/Home";
-
+import SignUp2 from "./components/Signup/SignUp2";
+import Login2 from "./components/Login/Login2";
 function App() {
   // Ignore the above haha
   return (
@@ -29,8 +30,8 @@ function App() {
             path="/sessions"
             component={Classes}
           ></PrivateRoute>
-          <Route exact path="/login" component={Login}></Route>
-          <Route exact path="/signup" component={SignUp}></Route>
+          <Route exact path="/login" component={Login2}></Route>
+          <Route exact path="/signup" component={SignUp2}></Route>
           <Route path="/test-history/:topic" component={TestScreen}></Route>
           <Route path="/level/:topic" component={LevelAndClasses}></Route>
           <Route path="/edupoints" component={EduPoints}></Route>
